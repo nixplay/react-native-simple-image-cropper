@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Image, Dimensions } from 'react-native';
+import { Image, Dimensions, Platform } from 'react-native';
 import PropTypes from 'prop-types';
 import ImageZoom from 'react-native-image-pan-zoom';
 import ImageEditor from '@react-native-community/image-editor';
@@ -82,8 +82,8 @@ class ImageCropper extends PureComponent {
     const sizeW = getPercentFromNumber(percentCropperAreaW, srcSize.w);
     const sizeH = getPercentFromNumber(percentCropperAreaH, srcSize.h);
 
-    offset.x = offsetW;
-    offset.y = offsetH;
+    offset.x = Platform.OS === 'ios' ? positionX : offsetW;
+    offset.y = Platform.OS === 'ios' ? positionY : offsetH;
 
     const cropData = {
       offset,
