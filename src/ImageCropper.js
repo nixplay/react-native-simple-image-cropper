@@ -47,7 +47,6 @@ class ImageCropper extends PureComponent {
       fittedSize,
       scale,
     } = params;
-
     const offset = {
       x: 0,
       y: 0,
