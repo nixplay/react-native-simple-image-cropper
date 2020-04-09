@@ -266,8 +266,8 @@ ImageCropper.crop = function (params) {
   var offsetH = (0, _percentCalculator.getPercentFromNumber)(srcPercentCropperAreaH, srcSize.h);
   var sizeW = (0, _percentCalculator.getPercentFromNumber)(percentCropperAreaW, srcSize.w);
   var sizeH = (0, _percentCalculator.getPercentFromNumber)(percentCropperAreaH, srcSize.h);
-  offset.x = offsetW;
-  offset.y = offsetH;
+  offset.x = _reactNative.Platform.OS === 'ios' ? positionX : offsetW;
+  offset.y = _reactNative.Platform.OS === 'ios' ? positionY : offsetH;
   var cropData = {
     offset: offset,
     size: {
